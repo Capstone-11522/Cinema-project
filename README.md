@@ -58,7 +58,7 @@ create a mongodb database and add your connection string into .env file
 Install the dependencies and devDependencies
 
 ```sh
-$ git clone https://github.com/georgesimos/Movie-app.git
+$ git clone https://github.com/Capstone-11522/Cinema-project.git
 $ npm install
 $ cd server npm install && npm start
 $ cd client npm install && npm start
