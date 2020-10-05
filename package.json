@@ -14,15 +14,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/georgesimos/Movie-app.git"
+    "url": "git+https://github.com/Capstone-11522/Cinema-project.git"
+
+    
   },
   "keywords": [],
   "author": "George Simos <georgesimos.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/georgesimos/Movie-app/issues"
+
+  .git
+    "url": "https://github.com/Capstone-11522/Cinema-project/issues"
   },
-  "homepage": "https://github.com/georgesimos/Movie-app#readme",
+  "homepage": "https://github.com/Capstone-11522/Cinema-project#readme",
   "dependencies": {
     "concurrently": "^5.0.0"
   },
