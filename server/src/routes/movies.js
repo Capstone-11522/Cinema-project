@@ -17,9 +17,9 @@ router.post('/movies', auth.enhance, async (req, res) => {
   }
 });
 
-router.get(
+router.post(
   '/movies/photo/:id',
-  auth.enhance,
+ // auth.enhance,
   upload('movies').single('file'),
   async (req, res, next) => {
     const url = `${req.protocol}://${req.get('host')}`;
