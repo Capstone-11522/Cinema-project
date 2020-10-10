@@ -7,7 +7,7 @@ import {
   TotalMovies,
   TotalReservations,
   BestMovies,
-  UsersByDevice
+  //UsersByDevice
 } from './components';
 import {
   getUsers,
