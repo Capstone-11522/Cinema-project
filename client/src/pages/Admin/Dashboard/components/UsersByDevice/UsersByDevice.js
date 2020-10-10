@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const UsersByDevice = props => {
+/** const UsersByDevice = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
@@ -60,7 +60,7 @@ const UsersByDevice = props => {
     ],
     labels: ['Desktop', 'Tablet', 'Mobile']
   };
-
+  **/
   const options = {
     legend: {
       display: false

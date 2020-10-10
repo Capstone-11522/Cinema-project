@@ -7,7 +7,7 @@ import {
   TotalMovies,
   TotalReservations,
   BestMovies,
-  UsersByDevice
+  //UsersByDevice
 } from './components';
 import {
   getUsers,
@@ -75,13 +75,10 @@ class Dashboard extends Component {
           <Grid item lg={3} sm={6} xl={3} xs={12}>
             <TotalReservations reservations={reservations.length} />
           </Grid>
-          <Grid item lg={8} md={12} xl={9} xs={12}>
+          <Grid item lg={18} md={12} xl={9} xs={12}>
             <BestMovies
               bestMovies={this.getBestMovies(reservations, movies, 5)}
             />
-          </Grid>
-          <Grid item lg={4} md={6} xl={3} xs={12}>
-            <UsersByDevice />
           </Grid>
         </Grid>
       </div>
