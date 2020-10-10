@@ -21,7 +21,7 @@ const createMailOptions = (data) => {
   return {
     from: 'geosimos91@gmail.com',
     to,
-    subject: 'Cinema + Invitation',
+    subject: 'Movies Invitation',
     html: htmlContent,
   };
 };
