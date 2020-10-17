@@ -27,9 +27,11 @@ const StyledRating = withStyles({
 
 function MovieBanner(props) {
   const { movie, fullDescription } = props;
-  const classes = useStyles(props);
-  if (!movie) return null;
+    const classes = useStyles(props);
 
+  if (!movie) return null;
+    const movieadd = movie.image;
+    const newmovieadd = movieadd.replaceAll("\\", "/");
   return (
     <div className={classes.movieHero}>
       <div className={classes.infoSection}>
@@ -83,7 +85,7 @@ function MovieBanner(props) {
       <div
         className={classes.blurBackground}
         style={{
-          backgroundImage: `url(${movie.image})`
+          backgroundImage: `url(${newmovieadd})`
         }}
       />
       <div className={classes.movieActions}>

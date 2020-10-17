@@ -26,7 +26,9 @@ const useStyles = makeStyles(theme => ({
 
 const MovieCardSimple = props => {
   const classes = useStyles();
-  const { movie } = props;
+    const { movie } = props;
+    const movieadd = movie.image;
+    const newmovieadd = movieadd.replaceAll("\\", "/");
 
   return (
     <Link to={`movie/${movie._id}`} style={{ textDecoration: 'none' }}>
@@ -34,7 +36,7 @@ const MovieCardSimple = props => {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={movie.image}
+            image={newmovieadd}
             title={movie.title}
           />
           <CardContent>

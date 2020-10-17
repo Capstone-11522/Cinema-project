@@ -10,7 +10,8 @@ import { Link } from 'react-router-dom';
 
 const MovieCard = props => {
   const { classes, movie } = props;
-
+    const movieadd = movie.image;
+    const newmovieadd = movieadd.replaceAll("\\", "/");
   return (
     <Link to={`/movie/${movie._id}`} style={{ textDecoration: 'none' }}>
       <Paper className={classes.movieCard} elevation={20}>
@@ -65,7 +66,7 @@ const MovieCard = props => {
         <div
           className={classes.blurBackground}
           style={{
-            backgroundImage: `url(${movie.image})`
+            backgroundImage: `url(${newmovieadd})`
           }}
         />
       </Paper>
