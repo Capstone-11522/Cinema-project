@@ -13,7 +13,9 @@ import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt';
 const MovieCard = props => {
   const { classes, movie } = props;
     const movieadd = movie.image;
-    const newmovieadd = movieadd.replaceAll("\\", "/");
+    if (movieadd !== undefined) {
+        var newmovieadd = movieadd.replaceAll("\\", "/");
+    }
     return (
         
     <Link to={`/movie/${movie._id}`} style={{ textDecoration: 'none' }}>

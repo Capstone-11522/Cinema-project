@@ -28,8 +28,9 @@ const MovieCardSimple = props => {
   const classes = useStyles();
     const { movie } = props;
     const movieadd = movie.image;
-    const newmovieadd = movieadd.replaceAll("\\", "/");
-
+    if (movieadd !== undefined) {
+        var newmovieadd = movieadd.replaceAll("\\", "/");
+    }
   return (
     <Link to={`movie/${movie._id}`} style={{ textDecoration: 'none' }}>
       <Card className={classes.card}>

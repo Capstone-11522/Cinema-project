@@ -31,7 +31,9 @@ function MovieBanner(props) {
 
   if (!movie) return null;
     const movieadd = movie.image;
-    const newmovieadd = movieadd.replaceAll("\\", "/");
+    if (movieadd !== undefined) {
+       var newmovieadd = movieadd.replaceAll("\\", "/");
+    }
   return (
     <div className={classes.movieHero}>
       <div className={classes.infoSection}>

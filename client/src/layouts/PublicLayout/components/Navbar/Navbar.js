@@ -52,7 +52,7 @@ class Navbar extends Component {
               Coming Soon
             </Link>
             <Link className={classes.navLink} to="/cinemas">
-              Cinemas
+              Free movies
             </Link>
           </div>
 
@@ -141,7 +141,7 @@ class Navbar extends Component {
               </li>
               <li className={classes.innerNavListItem}>
                 <Link className={classes.innerNavLink} to="/cinemas">
-                  Cinemas
+                  Free Movies
                 </Link>
               </li>
             </ul>
