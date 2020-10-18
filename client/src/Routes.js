@@ -28,7 +28,7 @@ const MovieCategoryPage = lazy(() =>
 );
 const CinemasPage = lazy(() => import('./pages/Public/CinemasPage'));
 const BookingPage = lazy(() => import('./pages/Public/BookingPage'));
-
+const PlayerPage = lazy(() => import('./pages/Public/PlayerPage'));
 const Checkin = lazy(() => import('./pages/Public/Checkin'));
 
 const Routes = () => {
@@ -51,7 +51,13 @@ const Routes = () => {
             path="/"
             layout={PublicLayout}
             component={HomePage}
-          />
+                  />
+                  <WithLayoutRoute
+                      exact
+                      path="/player/:id"
+                      layout={PublicLayout}
+                      component={PlayerPage}
+                  />
           <WithLayoutRoute
             exact
             path="/mydashboard"
@@ -76,7 +82,8 @@ const Routes = () => {
             layout={PublicLayout}
             layoutProps={{ withFooter: false }}
             component={MoviePage}
-          />
+                  />
+               
           <WithLayoutRoute
             exact
             path="/movie/booking/:id"

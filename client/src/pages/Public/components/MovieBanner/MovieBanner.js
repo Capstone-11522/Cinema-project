@@ -89,21 +89,29 @@ function MovieBanner(props) {
         }}
       />
       <div className={classes.movieActions}>
-        {fullDescription ? (
-          <Link to={`booking/${movie._id}`} style={{ textDecoration: 'none' }}>
-            <Button variant="contained" className={classes.button}>
-              Buy Tickets
+              {fullDescription ? (
+                  <Link to={`/player/${movie._id}`} style={{ textDecoration: 'none' }}>
+                      <Button variant="contained" 
+                          className={classnames(classes.button, classes.player)}>
+                          Play
               <ArrowRightAlt className={classes.buttonIcon} />
-            </Button>
-          </Link>
-        ) : (
+                      </Button>
+
+
+                  </Link>
+ )
+                  : (
           <Link to={`movie/${movie._id}`} style={{ textDecoration: 'none' }}>
             <Button className={classnames(classes.button, classes.learnMore)}>
               Learn More
               <ArrowRightAlt className={classes.buttonIcon} />
             </Button>
           </Link>
-        )}
+                  )}
+              
+                
+              )}
+           )}   
       </div>
     </div>
   );

@@ -16,7 +16,8 @@ class MoviePage extends Component {
 
   render() {
     const { movie } = this.props;
-    return <>{movie && <MovieBanner movie={movie} fullDescription />}</>;
+      return <>{movie && <MovieBanner movie={movie} fullDescription />}</>;
+      
   }
 }
 

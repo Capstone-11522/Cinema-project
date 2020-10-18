@@ -1,18 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, Paper, Typography } from '@material-ui/core';
+import { withStyles, Paper, Typography, Button } from '@material-ui/core';
 import styles from './styles';
 // import ShareIcon from '@material-ui/icons/Share';
 // import FavoriteIcon from '@material-ui/icons/Favorite';
 // import CaledarIcon from '@material-ui/icons/CalendarToday';
 import { textTruncate } from '../../../../utils';
 import { Link } from 'react-router-dom';
+import classnames from 'classnames';
+import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt';
 
 const MovieCard = props => {
   const { classes, movie } = props;
     const movieadd = movie.image;
     const newmovieadd = movieadd.replaceAll("\\", "/");
-  return (
+    return (
+        
     <Link to={`/movie/${movie._id}`} style={{ textDecoration: 'none' }}>
       <Paper className={classes.movieCard} elevation={20}>
         <div className={classes.infoSection}>
@@ -69,8 +72,10 @@ const MovieCard = props => {
             backgroundImage: `url(${newmovieadd})`
           }}
         />
-      </Paper>
-    </Link>
+            </Paper>
+           
+        </Link>
+        
   );
 };
 
