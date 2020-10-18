@@ -17,11 +17,14 @@ import {
   removeMovie
 } from '../../../../../store/actions';
 import FileUpload from '../../../../../components/FileUpload/FileUpload';
+import VideoUpload from '../../../../../components/VideoUpload/VideoUpload';
+
 
 class AddMovie extends Component {
   state = {
     title: '',
     image: null,
+    video: null,
     genre: [],
     language: '',
     duration: '',
@@ -79,15 +82,15 @@ class AddMovie extends Component {
   };
 
   onAddMovie = () => {
-    const { image, genre, ...rest } = this.state;
+    const { image, video, genre, ...rest } = this.state;
     const movie = { ...rest, genre: genre.join(',') };
-    this.props.addMovie(image, movie);
+    this.props.addMovie(image, video, movie);
   };
 
   onUpdateMovie = () => {
-    const { image, genre, ...rest } = this.state;
+    const { image, video, genre, ...rest } = this.state;
     const movie = { ...rest, genre: genre.join(',') };
-    this.props.updateMovie(this.props.edit._id, movie, image);
+    this.props.updateMovie(this.props.edit._id, movie, image, video);
   };
 
   onRemoveMovie = () => this.props.removeMovie(this.props.edit._id);
@@ -97,6 +100,7 @@ class AddMovie extends Component {
     const {
       title,
       image,
+      video,
       genre,
       language,
       duration,
@@ -262,6 +266,16 @@ class AddMovie extends Component {
               onUpload={event => {
                 const file = event.target.files[0];
                 this.handleFieldChange('image', file);
+              }}
+            />
+          </div>
+               <div className={classes.field}>
+            <VideoUpload
+              className={classes.upload1}
+              file={video}
+              onUpload={event => {
+                const file1 = event.target.files[0];
+                this.handleFieldChange('video', file1);
               }}
             />
           </div>

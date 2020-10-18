@@ -59,15 +59,17 @@ const useStyles = makeStyles(theme => ({
 function MovieCard(props) {
   const classes = useStyles(props);
   const { className, movie } = props;
-    const movieadd = movie.image;
-    const newmovieadd = movieadd.replaceAll("\\", "/");
+    var movieadd = movie.image;
+    if (movieadd !== undefined) {
+        movieadd = movieadd.replaceAll("\\", "/");
+    }
   const rootClassName = classNames(classes.root, className);
   return (
     <Paper className={rootClassName}>
           <div className={classes.imageWrapper}>
               
               <img alt="movie" className={classes.image}
-                  src={newmovieadd} />
+                  src={movieadd} />
       </div>
       <div className={classes.details}>
         <Typography className={classes.title} variant="h4">

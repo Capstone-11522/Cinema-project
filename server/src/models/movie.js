@@ -10,6 +10,9 @@ const movieSchema = new Schema({
   },
   image: {
     type: String,
+  }, 
+  video: {
+    type: String,
   },
   language: {
     type: String,

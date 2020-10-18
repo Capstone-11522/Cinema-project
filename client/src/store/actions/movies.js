@@ -1,18 +1,20 @@
 import { GET_MOVIES, SELECT_MOVIE,GET_SUGGESTIONS } from '../types';
 import { setAlert } from './alert';
 
-export const uploadMovieImage = (id, image) => async dispatch => {
+export const uploadMovieImage = (id, image,video) => async dispatch => {
   try {
     const data = new FormData();
-    data.append('file', image);
-    const url = '/movies/photo/' + id;
+    data.append('image', image);
+     data.append('video', video);
+    const url = '/movies/' + id;
+      console.log(image);
     const response = await fetch(url, {
       method: 'POST',
       body: data
     });
     const responseData = await response.json();
     if (response.ok) {
-      dispatch(setAlert('Image Uploaded', 'success', 5000));
+      dispatch(setAlert('Uploaded', 'success', 5000));
     }
     if (responseData.error) {
       dispatch(setAlert(responseData.error.message, 'error', 5000));
@@ -21,6 +23,8 @@ export const uploadMovieImage = (id, image) => async dispatch => {
     dispatch(setAlert(error.message, 'error', 5000));
   }
 };
+
+
 
 export const getMovies = () => async dispatch => {
   try {
@@ -75,7 +79,7 @@ export const getMovieSuggestion = id => async dispatch => {
   }
 };
 
-export const addMovie = (image, newMovie) => async dispatch => {
+export const addMovie = (image,video, newMovie) => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
     const url = '/movies';
@@ -90,7 +94,7 @@ export const addMovie = (image, newMovie) => async dispatch => {
     const movie = await response.json();
     if (response.ok) {
       dispatch(setAlert('Movie have been saved!', 'success', 5000));
-      if (image) dispatch(uploadMovieImage(movie._id, image));
+      if (image ) dispatch(uploadMovieImage(movie._id, image, video));
       dispatch(getMovies());
     }
   } catch (error) {
@@ -98,7 +102,7 @@ export const addMovie = (image, newMovie) => async dispatch => {
   }
 };
 
-export const updateMovie = (movieId, movie, image) => async dispatch => {
+export const updateMovie = (movieId, movie, image,video) => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
     const url = '/movies/' + movieId;
@@ -113,7 +117,8 @@ export const updateMovie = (movieId, movie, image) => async dispatch => {
     if (response.ok) {
       dispatch(onSelectMovie(null));
       dispatch(setAlert('Movie have been saved!', 'success', 5000));
-      if (image) dispatch(uploadMovieImage(movieId, image));
+
+       if (image ) dispatch(uploadMovieImage(movie._id, image, video));
       dispatch(getMovies());
     }
   } catch (error) {

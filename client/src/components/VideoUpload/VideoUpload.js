@@ -18,8 +18,8 @@ const styles = theme => ({
   }
 });
 
-const FileUpload = props => {
-  const { classes, className, file, onUpload } = props;
+const VideoUpload = props => {
+    const { classes, className, file, onUpload } = props;
   const rootClassName = classNames(
     {
       [classes.root]: true
@@ -30,23 +30,23 @@ const FileUpload = props => {
   return (
     <Paper className={rootClassName}>
       <input
-        accept="image/*"
+        accept="video/*"
         className={classes.input}
-        id="icon-button-file"
+        id="icon-button-video"
         type="file"
-        onChange={onUpload}
+         onChange={onUpload}
       />
-      <label htmlFor="icon-button-file">
+      <label htmlFor="icon-button-video">
         <Button variant="outlined" className={classes.button} component="span">
-          Upload poster
+          Upload Video
         </Button>
       </label>
-      <span>{file ? file.name : 'No picture selected'}</span>
+      <span>{file ? file.name : 'No video selected'}</span>
     </Paper>
   );
 };
 
-FileUpload.propTypes = {
+VideoUpload.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   classes: PropTypes.object.isRequired,
@@ -55,10 +55,10 @@ FileUpload.propTypes = {
   squared: PropTypes.bool
 };
 
-FileUpload.defaultProps = {
+VideoUpload.defaultProps = {
   squared: false,
   outlined: true,
   elevation: 0
 };
 
-export default withStyles(styles)(FileUpload);
+export default withStyles(styles)(VideoUpload);

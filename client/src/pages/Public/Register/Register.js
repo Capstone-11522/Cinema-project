@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
 import {
   Button,
-  Checkbox,
+  //Checkbox,
   Grid,
   IconButton,
   TextField,
@@ -14,7 +14,7 @@ import {
 } from '@material-ui/core';
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
 import styles from './styles';
-import FileUpload from '../../../components/FileUpload/FileUpload';
+
 
 class Register extends Component {
   state = {
@@ -55,7 +55,7 @@ class Register extends Component {
     const { classes } = this.props;
     const { values } = this.state;
 
-    const isValid = values.policy;
+   // const isValid = values.policy;
 
     return (
       <div className={classes.root}>
@@ -131,40 +131,14 @@ class Register extends Component {
                         this.handleFieldChange('password', event.target.value)
                       }
                     />
-                    <FileUpload
-                      className={classes.upload}
-                      file={values.image}
-                      onUpload={event => {
-                        const file = event.target.files[0];
-                        this.handleFieldChange('image', file);
-                      }}
-                    />
-                    <div className={classes.policy}>
-                      <Checkbox
-                        checked={values.policy}
-                        className={classes.policyCheckbox}
-                        color="primary"
-                        name="policy"
-                        onChange={() =>
-                          this.handleFieldChange('policy', !values.policy)
-                        }
-                      />
-                      <Typography
-                        className={classes.policyText}
-                        variant="body1">
-                        I have read the &nbsp;
-                        <Link className={classes.policyUrl} to="#">
-                          Terms and Conditions
-                        </Link>
-                        .
-                      </Typography>
-                    </div>
+               
+                   
                   </div>
 
                   <Button
                     className={classes.registerButton}
                     color="primary"
-                    disabled={!isValid}
+
                     onClick={this.handleRegister}
                     size="large"
                     variant="contained">

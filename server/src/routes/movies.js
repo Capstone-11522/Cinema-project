@@ -6,6 +6,7 @@ const userModeling = require('../utils/userModeling');
 
 const router = new express.Router();
 
+
 // Create a movie
 router.post('/movies', auth.enhance, async (req, res) => {
   const movie = new Movie(req.body);
@@ -17,25 +18,28 @@ router.post('/movies', auth.enhance, async (req, res) => {
   }
 });
 
+
+var tempupload = upload('movies').fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]);
+
 router.post(
-  '/movies/photo/:id',
+  '/movies/:id',
  // auth.enhance,
-  upload('movies').single('file'),
+    tempupload,
   async (req, res, next) => {
     const url = `${req.protocol}://${req.get('host')}`;
-    const { file } = req;
+    //const { file } = req;
     const movieId = req.params.id;
-    try {
-      if (!file) {
-        const error = new Error('Please upload a file');
-        error.httpStatusCode = 400;
-        return next(error);
-      }
+      try {
       const movie = await Movie.findById(movieId);
-      if (!movie) return res.sendStatus(404);
-      movie.image = `${url}/${file.path}`;
-      await movie.save();
-      res.send({ movie, file });
+          if (!movie) return res.sendStatus(404);
+
+          var image = req.files['image'][0];
+          var video = req.files['video'][0];
+          console.log(video.path);
+          movie.image = `${url}/${image.path}`;
+          movie.video = `${url}/${video.path}`;
+          await movie.save();
+          res.send({ movie });
     } catch (e) {
       console.log(e);
       res.sendStatus(400).send(e);
@@ -45,9 +49,10 @@ router.post(
 
 // Get all movies
 router.get('/movies', async (req, res) => {
-  try {
-    const movies = await Movie.find({});
-    res.send(movies);
+    try {     
+      const movies = await Movie.find({});
+      console.log(movies);
+      res.send(movies);
   } catch (e) {
     res.status(400).send(e);
   }
@@ -59,7 +64,7 @@ router.get('/movies/:id', async (req, res) => {
 
   try {
     const movie = await Movie.findById(_id);
-    if (!movie) return res.sendStatus(404);
+      if (!movie) return res.sendStatus(404);
     return res.send(movie);
   } catch (e) {
     return res.status(400).send(e);

@@ -2,6 +2,7 @@ export { default as Alert } from './Alert';
 export { default as CustomizedSnackbar } from './CustomizedSnackbar';
 export { default as DisplayMode } from './DisplayMode';
 export { default as FileUpload } from './FileUpload';
+export { default as VideoUpload } from './VideoUpload';
 export { default as Loading } from './Loading';
 export { default as Paper } from './Paper';
 export { default as Portlet } from './Portlet';

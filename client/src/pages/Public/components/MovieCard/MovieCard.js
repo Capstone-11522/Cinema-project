@@ -7,15 +7,17 @@ import { Link } from 'react-router-dom';
 
 const MovieCard = props => {
   const { classes, movie } = props;
-    const movieadd = movie.image;
-    const newmovieadd = movieadd.replaceAll("\\", "/");
+    var movieadd = movie.image;
+    if (movieadd !== undefined) {
+        movieadd = movieadd.replaceAll("\\", "/");
+    }
   return (
     <Link to={`movie/${movie._id}`} style={{ textDecoration: 'none' }}>
       <div className={classes.card}>
         <header
           className={classes.header}
           style={{
-            backgroundImage=(newmovieadd)
+              backgroundImage=(movieadd)
           }}>
           <Typography className={classes.h4} variant="h4" color="inherit">
             {movie.genre}
